@@ -19,7 +19,7 @@ Payables turnover
 A longer turnover interval than the industry average indicates 
 a company is not paying its suppliers in a timely manner.
 */ 
-   public float payablesTurnover(float totalSupplierPurchases, float begAccountsPayable, float endAccountsPayable){
+   public static float payablesTurnover(float totalSupplierPurchases, float begAccountsPayable, float endAccountsPayable){
 
 	   float avgAccountsPayable = (begAccountsPayable + endAccountsPayable)/2;
 

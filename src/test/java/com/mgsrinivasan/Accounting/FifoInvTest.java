@@ -1,9 +1,9 @@
+package com.mgsrinivasan.Accounting;
 
+import com.mgsrinivasan.accountingInventory.FifoInv;
 import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.assertEquals;
-
-package com.mgsrinivasan;
 
 public class FifoInvTest {
 
@@ -20,44 +20,52 @@ public class FifoInvTest {
     @Test
     public void setFifoBegInvTest() {
     	int units = 100; 
-    	float unitCost = 210.00;
+    	float unitCost = (float) 210.00;
    	
-    	float expected = 21000.00;
-    	sm.setFifoBegInv(units,unitCost); 
-    	
-        assertEquals("setFifoBegInv not working correctly", expected, sm.getFifoBegInv());
+    	float expected = (float) 21000.00;
+    	sm.setFifoBegInv(units,unitCost);
+
+        float delta = (float) 0.0;
+
+        assertEquals("setFifoBegInv not working correctly", expected, sm.getFifoBegInv(), delta);
     }
 
     @Test
     public void setFifoPurchaseTest() {
     	int units = 150; 
-    	float unitCost = 280.00;
+    	float unitCost = (float) 280.00;
    	
-    	float expected = 42000.00;
+    	float expected = (float) 42000.00;
     	
     	sm.setFifoPurchase(units,unitCost);
-    	
-        assertEquals("setFifoPurchase not working correctly", expected, sm.getFifoLayerCost());
+
+        float delta = (float) 0.0;
+
+        assertEquals("setFifoPurchase not working correctly", expected, sm.getFifoLayerCost(), delta);
     }
     
     @Test
-    public void setFifoPurchaseTest() {
+    public void setFifoPurchaseTest2() {
     	int units = 50; 
-    	float unitCost = 300.00;
+    	float unitCost = (float) 300.00;
    	
-    	float expected = 15000.00;
+    	float expected = (float) 15000.00;
     	
     	sm.setFifoPurchase(units,unitCost);
-    	
-        assertEquals("setFifoPurchase not working correctly", expected, sm.getFifoLayerCost());
+
+        float delta = (float) 0.0;
+
+        assertEquals("setFifoPurchase not working correctly", expected, sm.getFifoLayerCost(), delta);
     }
     
     @Test
     public void getFifoCOGSUnitsTest() {
    
     	int expected = 175;
-    	    	
-        assertEquals("setFifoPurchase not working correctly", expected, sm.getFifoCOGSUnits());
+
+        float delta = (float) 0.0;
+
+        assertEquals("setFifoPurchase not working correctly", expected, sm.getFifoCOGSUnits(), delta);
     }
 
       

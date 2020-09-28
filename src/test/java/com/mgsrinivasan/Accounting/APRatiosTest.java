@@ -1,5 +1,6 @@
 package com.mgsrinivasan.Accounting;
 
+import com.mgsrinivasan.accountingRatios.APRatios;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -7,42 +8,46 @@ import static org.junit.Assert.assertEquals;
 
 public class APRatiosTest {
 
-    APRatios apratio;
+    APRatios apRatio;
 
     @Before
     public void setup() {
-    	apratio = new APRatios();
+    	apRatio = new APRatios();
     }
     
     @Test
     public void testPayablesTurnover() {
-    	float totalSupplierPurchases = 1000000.00;
-    	float begAccountsPayable = 50000.00;
-    	float endAccountsPayable)= 250000.00;
-    	float expectedValue = 6.6666666667;
-    	
-        assertEquals("Error in payablesTurnover()", expectedValue, payablesTurnover(totalSupplierPurchases, begAccountsPayable, endAccountsPayable));
+    	float totalSupplierPurchases = (float) 1000000.00;
+    	float begAccountsPayable = (float) 50000.00;
+    	float endAccountsPayable = (float) 250000.00;
+    	float expectedValue = (float) 6.6666666667;
+        float delta = (float) 0.0;
+
+        assertEquals("Error in payablesTurnover()", expectedValue, APRatios.payablesTurnover(totalSupplierPurchases, begAccountsPayable, endAccountsPayable), delta);
     }
 
     @Test
     public void testPctgQualifyingDiscountsTaken() {
     	
-    	float discountsTaken = 15000.00;
-    	float discountsCouldHaveBeenTaken = 25000.00;
-    	float expectedValue = 0.6;
-    	
-        assertEquals("Error in PctgQualifyingDiscountsTaken()", expectedValue, apratio.pctgQualifyingDiscountsTaken(discountsTaken, discountsCouldHaveBeenTaken));
+    	float discountsTaken = (float) 15000.00;
+    	float discountsCouldHaveBeenTaken = (float) 25000.00;
+    	float expectedValue = (float) 0.6;
+
+        float delta = (float) 0.0;
+
+        assertEquals("Error in PctgQualifyingDiscountsTaken()", expectedValue, apRatio.pctgQualifyingDiscountsTaken(discountsTaken, discountsCouldHaveBeenTaken), delta);
     }
 
     @Test
     public void testpctgDuplicatePaymentsProcessed() {
     	
-    	float aggregDuplicateInvoicesPaid = 2000000.00;
-    	float totalAmountSupplierPayments = 100000000.00;
+    	float aggregDuplicateInvoicesPaid = (float) 2000000.00;
+    	float totalAmountSupplierPayments = (float) 100000000.00;
     	
-    	float expectedValue = 0.02;
-	    	
-        assertEquals("Error in pctgDuplicatePaymentsProcessed()", expectedValue, apratio.pctgDuplicatePaymentsProcessed(discountsTaken, discountsCouldHaveBeenTaken, expectedValue));
+    	float expectedValue = (float) 0.02;
+        float delta = (float) 0.0;
+
+        assertEquals("Error in pctgDuplicatePaymentsProcessed()", expectedValue, apRatio.pctgDuplicatePaymentsProcessed(aggregDuplicateInvoicesPaid, totalAmountSupplierPayments), delta);
     }
     
 }

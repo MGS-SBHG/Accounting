@@ -1,11 +1,10 @@
-package test;
+package com.mgsrinivasan.Accounting;
 
+import com.mgsrinivasan.construction.ConstructionContracts;
 import org.junit.Before;
 import org.junit.Test;
 
-import construction.ConstructionContracts;
-
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertTrue;
 
 public class ConstructionContractsTest {
 

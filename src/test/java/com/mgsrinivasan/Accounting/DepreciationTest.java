@@ -1,11 +1,10 @@
-package test;
+package com.mgsrinivasan.Accounting;
 
+import com.mgsrinivasan.accountingDepreciation.Depreciation;
 import org.junit.Before;
 import org.junit.Test;
 
-import accountingDepreciation.Depreciation;
-
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertTrue;
 
 public class DepreciationTest {
 
