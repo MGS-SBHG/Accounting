@@ -1,5 +1,7 @@
 package com.mgsrinivasan.construction;
 
+// Updated to Maven and JUnit 5
+
 /*
 Long Term construction contracts
 accounted for under
@@ -64,11 +66,9 @@ public class ConstructionContracts {
 
 	static private double totalProfitToBeRecognizedEndOfYr;
 
-
 	static private double incomeRecognizedCurrentYr;
 
 	static private double incomeRecognizedToDate;
-
 
 	static private double incomeOnConstruction_CompletedContract;
 	
@@ -152,15 +152,15 @@ public class ConstructionContracts {
 	} // completedContract
 
 
-	public static double getTotalCostsThisYr() {
+	public double getTotalCostsThisYr() {
 		return totalCostsThisYr;
 	}
 
-	public static void setTotalCostsThisYr(double costsIncurredThisAndPrevYears) {
+	public void setTotalCostsThisYr(double costsIncurredThisAndPrevYears) {
 		totalCostsThisYr += costsIncurredThisAndPrevYears;
 	}
 
-	public static double getPctgOfCompletionRate()
+	public double getPctgOfCompletionRate()
 	{
 		return getActualCostToDate() / getTotalCostsThisYr();
 	} // getPctgOfCompletionRate
@@ -181,7 +181,6 @@ public class ConstructionContracts {
 		return actualCostToDate; 		
 	} // setActualCostToDate
 
-
 	public double getCollectionsOnBillingsEachYr() 
 	{
 		return collectionsOnBillingsEachYr;
@@ -197,7 +196,6 @@ public class ConstructionContracts {
 		return "Cash \t" + collected
 				+ "\n Accounts Receivable	\t" + collected;
 	}
-
 
 	public void setEstTtlIncome() 
 	{
@@ -255,22 +253,20 @@ public class ConstructionContracts {
 		incomeRecognizedToDate += incomeRecognizedCurrentYr;
 	}
 
-	public static double getEstProfit() {
+	public double getEstProfit() {
 		return estProfit;
 	}
 
-	public static void setEstProfit(double estimatedProfit) {
+	public void setEstProfit(double estimatedProfit) {
 		estProfit = estimatedProfit;
 	}
 
-	public static double getTotalProfitToBeRecognizedEndOfYr() {
+	public double getTotalProfitToBeRecognizedEndOfYr() {
 		return totalProfitToBeRecognizedEndOfYr;
 	}
 
-	public static void setTotalProfitToBeRecognizedEndOfYr() {
+	public void setTotalProfitToBeRecognizedEndOfYr() {
 		totalProfitToBeRecognizedEndOfYr = getEstProfit() * getPctgOfCompletionRate();
 	}
-
-
-
+	
 } // ConstructionContracts

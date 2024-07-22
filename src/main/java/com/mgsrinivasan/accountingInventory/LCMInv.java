@@ -1,3 +1,5 @@
+// Updated to Maven and JUnit 5
+
 /*
 Lower of cost or market (LCM) rule 
 	a business must record the cost of inventory at whichever cost is lower – 
@@ -48,6 +50,8 @@ Sales incentives.
 indicator that there may be a lower of cost or market problem with that item.
 
 */
+
+
 package com.mgsrinivasan.accountingInventory;
 
 public class LCMInv{

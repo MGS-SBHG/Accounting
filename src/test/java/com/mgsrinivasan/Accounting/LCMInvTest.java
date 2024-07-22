@@ -1,10 +1,12 @@
 package com.mgsrinivasan.Accounting;
 
-import com.mgsrinivasan.accountingInventory.LCMInv;
-import org.junit.Before;
-import org.junit.Test;
+// Updated to Maven and JUnit 5
 
-import static org.junit.Assert.assertEquals;
+import com.mgsrinivasan.accountingInventory.LCMInv;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 
 public class LCMInvTest {
 
@@ -14,7 +16,7 @@ public class LCMInvTest {
     private LCMInv Iridescent;
     private LCMInv Titanium;
 
-    @Before
+    @BeforeEach
     public void setup() {
     	FreeSwing = new LCMInv(1000,190);
     	GolfElite = new LCMInv(750, 140);
@@ -25,20 +27,20 @@ public class LCMInvTest {
     
     @Test
     public void QtyOnHandTest() {
-        assertEquals("Error in getQtyOnHand", 1000, FreeSwing.getQtyOnHand(),0);
-        assertEquals("Error in getQtyOnHand", 750, GolfElite.getQtyOnHand(),0);
-        assertEquals("Error in getQtyOnHand", 200, HiFlight.getQtyOnHand(),0);
-        assertEquals("Error in getQtyOnHand", 1200, Iridescent.getQtyOnHand(),0);
-        assertEquals("Error in getQtyOnHand", 800, Titanium.getQtyOnHand(),0);
+        assertEquals(1000, FreeSwing.getQtyOnHand(),"Error in getQtyOnHand");
+        assertEquals(750, GolfElite.getQtyOnHand(),"Error in getQtyOnHand");
+        assertEquals(200, HiFlight.getQtyOnHand(),"Error in getQtyOnHand");
+        assertEquals(1200, Iridescent.getQtyOnHand(),"Error in getQtyOnHand");
+        assertEquals(800, Titanium.getQtyOnHand(),"Error in getQtyOnHand");
     }
 
     @Test
     public void getUnitCostTest() {
-        assertEquals("Error in getUnitCost", 190, FreeSwing.getUnitCost(),0);
-        assertEquals("Error in getUnitCost", 140, GolfElite.getUnitCost(),0);
-        assertEquals("Error in getUnitCost", 135, HiFlight.getUnitCost(),0);
-        assertEquals("Error in getUnitCost", 280, Iridescent.getUnitCost(),0);
-        assertEquals("Error in getUnitCost", 200, Titanium.getUnitCost(),0);
+        assertEquals(190, FreeSwing.getUnitCost(),"Error in getUnitCost");
+        assertEquals(140, GolfElite.getUnitCost(),"Error in getUnitCost");
+        assertEquals(135, HiFlight.getUnitCost(),"Error in getUnitCost");
+        assertEquals(280, Iridescent.getUnitCost(),"Error in getUnitCost");
+        assertEquals(200, Titanium.getUnitCost(),"Error in getUnitCost");
     }
 
     @Test
@@ -49,11 +51,11 @@ public class LCMInvTest {
     	Iridescent.setInvAtCost();
     	Titanium.setInvAtCost();
 	
-    	assertEquals("Error in getInvAtCost", 190000, FreeSwing.getInvAtCost(),0);
-        assertEquals("Error in getInvAtCost", 105000, GolfElite.getInvAtCost(),0);
-        assertEquals("Error in getInvAtCost", 27000, HiFlight.getInvAtCost(),0);
-        assertEquals("Error in getInvAtCost", 336000, Iridescent.getInvAtCost(),0);
-        assertEquals("Error in getInvAtCost", 160000, Titanium.getInvAtCost(),0);
+    	assertEquals(190000, FreeSwing.getInvAtCost(),"Error in getInvAtCost");
+        assertEquals(105000, GolfElite.getInvAtCost(),"Error in getInvAtCost");
+        assertEquals(27000, HiFlight.getInvAtCost(),"Error in getInvAtCost");
+        assertEquals(336000, Iridescent.getInvAtCost(),"Error in getInvAtCost");
+        assertEquals(160000, Titanium.getInvAtCost(),"Error in getInvAtCost");
 
     }    
     
@@ -66,11 +68,11 @@ public class LCMInvTest {
     	Iridescent.setMktCostPerUnit(160);
     	Titanium.setMktCostPerUnit(215);
 	
-    	assertEquals("Error in getInvAtCost", 230, FreeSwing.getMktCostPerUnit(),0);
-        assertEquals("Error in getInvAtCost", 170, GolfElite.getMktCostPerUnit(),0);
-        assertEquals("Error in getInvAtCost", 120, HiFlight.getMktCostPerUnit(),0);
-        assertEquals("Error in getInvAtCost", 160, Iridescent.getMktCostPerUnit(),0);
-        assertEquals("Error in getInvAtCost", 215, Titanium.getMktCostPerUnit(),0);
+    	assertEquals(230, FreeSwing.getMktCostPerUnit(),"Error in getInvAtCost");
+        assertEquals(170, GolfElite.getMktCostPerUnit(),"Error in getInvAtCost");
+        assertEquals(120, HiFlight.getMktCostPerUnit(),"Error in getInvAtCost");
+        assertEquals(160, Iridescent.getMktCostPerUnit(),"Error in getInvAtCost");
+        assertEquals(215, Titanium.getMktCostPerUnit(),"Error in getInvAtCost");
 
     }    
     
@@ -83,11 +85,11 @@ public class LCMInvTest {
     	Iridescent.setInvAtMkt();
     	Titanium.setInvAtMkt();
 	
-    	assertEquals("Error in getInvAtMkt", 230000, FreeSwing.getInvAtMkt(),0);
-        assertEquals("Error in getInvAtMkt", 105000, GolfElite.getInvAtMkt(),0);
-        assertEquals("Error in getInvAtMkt", 24000,  HiFlight.getInvAtMkt(),0);
-        assertEquals("Error in getInvAtMkt", 192000, Iridescent.getInvAtMkt(),0);
-        assertEquals("Error in getInvAtMkt", 172000, Titanium.getInvAtMkt(),0);
+    	assertEquals(230000, FreeSwing.getInvAtMkt(),"Error in getInvAtMkt");
+        assertEquals(105000, GolfElite.getInvAtMkt(),"Error in getInvAtMkt");
+        assertEquals(24000,  HiFlight.getInvAtMkt(),"Error in getInvAtMkt");
+        assertEquals(192000, Iridescent.getInvAtMkt(),"Error in getInvAtMkt");
+        assertEquals(172000, Titanium.getInvAtMkt(),"Error in getInvAtMkt");
 
     }    
     
@@ -100,13 +102,12 @@ public class LCMInvTest {
     	Iridescent.setLCMcost();
     	Titanium.setLCMcost();
 	
-    	assertEquals("Error in getLCM", 190000, FreeSwing.getLCM(),0);
-        assertEquals("Error in getLCM", 105000, GolfElite.getLCM(),0);
-        assertEquals("Error in getLCM", 24000,  HiFlight.getLCM(),0);
-        assertEquals("Error in getLCM", 192000, Iridescent.getLCM(),0);
-        assertEquals("Error in getLCM", 160000, Titanium.getLCM(),0);
+    	assertEquals(190000, FreeSwing.getLCM(),"Error in getLCM");
+        assertEquals(105000, GolfElite.getLCM(),"Error in getLCM");
+        assertEquals(24000,  HiFlight.getLCM(),"Error in getLCM");
+        assertEquals(192000, Iridescent.getLCM(),"Error in getLCM");
+        assertEquals(160000, Titanium.getLCM(),"Error in getLCM");
 
-    }    
+    }
 
-    
 }

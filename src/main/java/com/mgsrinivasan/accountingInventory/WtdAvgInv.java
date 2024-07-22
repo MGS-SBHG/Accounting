@@ -1,3 +1,5 @@
+// Updated to Maven and JUnit 5
+
 /*
 Weighted Average Method
 used to assign the average cost of production to a product. 

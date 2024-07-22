@@ -1,6 +1,8 @@
 
 package com.mgsrinivasan.accountingInventory;
 
+// Updated to Maven and JUnit 5
+
 public class InventoryCosting{
 
     public float fifoPeriodic( ){

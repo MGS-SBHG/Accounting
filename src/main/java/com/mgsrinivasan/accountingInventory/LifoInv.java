@@ -1,3 +1,6 @@
+
+// Updated to Maven and JUnit 5
+
 /*
 Last-in, First-out(LIFO) method
  inventory accounting value.

@@ -1,90 +1,93 @@
 package com.mgsrinivasan.accountingDepreciation;
 
+// Updated to Maven and JUnit 5
+
 public class Depreciation{
 
 	float deprecAssetCost = 0;
-	float deprecRatePerYr = 0;
-	int syd = 0;
-	int remainingEstUsefulLife = 0;
-	float rate = 0;
-	float Beg_nbv = 0;
-	float depr = 0;
-	float End_nbv = 0;
+//	float deprecRatePerYr = 0;
+//	int syd = 0;
+//	int remainingEstUsefulLife = 0;
+//	float rate = 0;
+//	float Beg_nbv = 0;
+//	float depr = 0;
+//	float End_nbv = 0;
 
-	
-    public double straightLineDep(float assetCost, float expectedSalvageCost, int remainEstUsefulLife)
+	public double bookValue(float assetCost, float accumDep)
+	{
+		return (assetCost - accumDep);
+	}
+
+    public double straightLineDep(float assetCost, float expectedSalvageCost, int EstUsefulLife)
     {
-    	deprecAssetCost = (float)(assetCost - expectedSalvageCost);
-    	deprecRatePerYr = (1/remainEstUsefulLife);
-    	
-		System.out.println("Purchase cost /t – estimated salvage value /t Depreciable asset cost /t Depreciation rate per year /t + estUsefulLife \n");
-		
-		System.out.println( assetCost + "/t" + expectedSalvageCost + "/t" + deprecAssetCost 
-				+ remainEstUsefulLife + deprecRatePerYr + "\n"); 
+		deprecAssetCost = (assetCost - expectedSalvageCost);
+    	double annualDepExp = (deprecAssetCost/EstUsefulLife);
 
-    	//System.out.println(deprecRatePerYr + " depreciation rate x " + deprecAssetCost + "depreciable asset cost = " + (deprecAssetCost*deprecRatePerYr) + " annual depreciation" + "\n");
-
-        return (deprecAssetCost * deprecRatePerYr);
+        return (annualDepExp);
     } //straightLineDep
 
-    public double sumOfYrsDigitsDep( float assetCost, float expectedSalvageCost, int estUsefulLife) 
+	/*
+	double declining balance depreciation method
+		accelerated depreciation method
+		allocate larger amounts of costs to an asset in earlier years of its useful life
+		lesser amounts in later years
+
+	 */
+    public double dblDeclBalDep (float assetCost, float accumDep, int usefulLife)
     {
+		double rate = (2.0 / usefulLife); // .02
+		System.out.println("rate:" + rate);
 
-    	deprecAssetCost = (assetCost - expectedSalvageCost);
-    	syd = (estUsefulLife * (estUsefulLife + 1)) / 2;
-    	remainingEstUsefulLife = estUsefulLife;
-    	double applPctg = 0.0;
-    	double depr = 0;
-	
-	System.out.println("Remaining estimated useful life at beg. of yr: " + estUsefulLife + "\n");
-	System.out.println("SYD: " + estUsefulLife + "/" + syd + " /t Applicable% " + "Annual Depreciation " + "\n");
-	for (int i = 0; i <= estUsefulLife; i++){
-	
-	applPctg = remainingEstUsefulLife / syd;	
-	System.out.println(applPctg + " ");
-	
-    depr = (deprecAssetCost * applPctg);
-	System.out.println(depr + "\n");
-	}
-	return depr;
-    } // sumOfYrsDigitsDep
+		double deprecAssetCost = (double)(assetCost - accumDep);
+		System.out.println("deprecAssetCost: " + deprecAssetCost);
 
-    public double dblDeclBalDep (int usefulLife, float strgtLineRate, float assetCost, float d ) 
-    {
-    	rate = 2 * strgtLineRate;
-    	Beg_nbv = assetCost;
-    	depr = 0;
+		double annualDepExp = (double) (deprecAssetCost * rate);
+		System.out.println("annualDepExp: " + annualDepExp);
 
-	System.out.println("Yr \t Beginning NBV \t Depreciation \t Ending NBV \n");
-	
-	for (int i=0; i <= usefulLife; i++)
-	{
-        depr = rate * Beg_nbv;       
-        End_nbv = Beg_nbv - depr;	
-
-		System.out.println(i + "\t" + depr + "\t" + End_nbv + "\n");
-        
-        Beg_nbv = End_nbv;   	 	
-	}
-	return depr;
+		return annualDepExp;
     } //dblDeclBalDep
 
-    public double oneHdrdFiftyPctDeclBalDep (int usefulLife, float strgtLineRate, float assetCost, float accumDep ) 
+    public double oneHdrdFiftyPctDeclBalDep (float assetCost, float accumDep, int usefulLife)
     {
-    	rate = (float) (1.5*strgtLineRate);
-    	Beg_nbv = assetCost;
-    	depr = 0;    	
+    	float rate = (float) (1.5/usefulLife); //0.3
+								// 100000  - 10000	   x 0.3
+		double currentDeprExp = (assetCost - accumDep) * rate;
 
-	System.out.println("Yr \t Beginning NBV \t Depreciation \t Ending NBV \n");
-	for (int i=0; i <= usefulLife; i++)
+		return currentDeprExp;
+    }// oneHdrdFiftyPctDeclBalDep
+
+	public double sumOfYrsDigitsDep(float assetCost, float expectedSalvageCost, int estUsefulLife, int estRemainingUsefulLife)
 	{
-        depr = rate * Beg_nbv;       
-        End_nbv = Beg_nbv - depr;	
+		deprecAssetCost = (assetCost - expectedSalvageCost);
+//		System.out.println("assetCost: " + assetCost);
+//		System.out.println("expectedSalvageCost: " + expectedSalvageCost);
+//		System.out.println("deprecAssetCost: " + deprecAssetCost);
 
-		System.out.println(i + "\t" + depr + "\t" + End_nbv + "\n");
-        
-        Beg_nbv = End_nbv;   	 	
-	}	
-	return depr;
-    }// oneHdrdFiftyPctDeclBalDep			
+		int num = estRemainingUsefulLife;
+//		System.out.println("estRemainingUsefulLife: " + estRemainingUsefulLife);
+
+		int denom = 0;
+
+		float fraction = 0;
+
+		double annualDepExp = 0;
+
+//		System.out.println("Remaining estimated useful life at beg. of yr: " + estUsefulLife + "\n");
+//		System.out.println("SYD: " + estUsefulLife + "/" + syd + " /t Applicable% " + "Annual Depreciation " + "\n");
+
+		for (int i = 0; i <= estUsefulLife; i++)
+			denom += i;
+
+//		System.out.println("denom: " + denom);
+
+		fraction = (float) num/denom;
+//		System.out.println("fraction: " + fraction);
+
+		annualDepExp = deprecAssetCost * fraction;
+//		System.out.println("annualDepExp: " + annualDepExp);
+
+		return annualDepExp;
+
+	} // sumOfYrsDigitsDep
+
 }

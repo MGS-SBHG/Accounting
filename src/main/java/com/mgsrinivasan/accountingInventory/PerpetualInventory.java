@@ -1,3 +1,5 @@
+// Updated to Maven and JUnit 5
+
 /*
 Perpetual inventory system
 	an entity continually updates its inventory records to account for additions to and subtractions from inventory. 

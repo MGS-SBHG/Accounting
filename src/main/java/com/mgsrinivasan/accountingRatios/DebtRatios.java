@@ -1,3 +1,5 @@
+// Updated to Maven and JUnit 5
+
 /*
 Debt ratios 
 measure the extent to which an organization uses debt to fund its operations
@@ -9,7 +11,7 @@ Lenders: determine the extent to which loaned funds could be at risk.
 
 source: http://www.accountingtools.com
 */
-package accountingRatios;
+package com.mgsrinivasan.accountingRatios;
 
 public class DebtRatios{
 
@@ -20,7 +22,7 @@ Debt to equity ratio
 intent: see if funding is coming from a reasonable proportion of debt. 
 Lenders like to see a large equity stake in a business.
 */ 
-   public float debtToEquityRatio(float ttlDebtAmt, float ttlEquityAmt){
+   public static float debtToEquityRatio(float ttlDebtAmt, float ttlEquityAmt){
 
         return (ttlDebtAmt / ttlEquityAmt);
     }
@@ -32,7 +34,7 @@ Debt ratio.
 A high ratio: assets are being financed primarily with debt rather than equity
 - considered to be a risky approach to financing.
 */
-    public float debtRatio(float ttlDebt, float ttlAssets){
+    public static float debtRatio(float ttlDebt, float ttlAssets){
 
         return (ttlDebt / ttlAssets);
 
@@ -44,7 +46,7 @@ total net annual operating income / total of annual loan payments.
 
 measures the ability of a business to pay back both the principal and interest portions of its debt.
 */
-    public float debtServiceCoverageRatio(float ttlNetAnnualOperIncome, float ttlAnnualLoanPayments) {
+    public static float debtServiceCoverageRatio(float ttlNetAnnualOperIncome, float ttlAnnualLoanPayments) {
 
         return ttlNetAnnualOperIncome / ttlAnnualLoanPayments;
 
@@ -60,7 +62,7 @@ works well in cases where a loan is expected to be rolled over into a
 new loan when it reaches maturity.
 */
 
-    public float interestCoverageRatio(float EBIT, float intExp) {
+    public static float interestCoverageRatio(float EBIT, float intExp) {
 
         return EBIT / intExp;
     }	

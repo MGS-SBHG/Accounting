@@ -1,7 +1,19 @@
+// Updated to Java 12, Maven, JUnit 5
+
 /*
 First-in, First-Out(FIFO) method of inventory valuation 
 	a cost flow assumption: 
 	first goods purchased are also the first goods sold. 
+
+Goods from BI and earlier purchases
+	assumed to be the goods sold first
+During inflation (rising prices),
+	COGS is made up of earlier lower-priced goods;
+	GP is higher
+EI represents a more current value on BS
+Can be used even if does not match physical flow of goods
+Inventory and COGS are the same for periodic and perpetual systems
+
 
 In most companies, closely matches the actual flow of goods;
 considered the most theoretically correct inventory valuation method. 
@@ -51,42 +63,50 @@ public class FifoInv{
 	
 	
     public void setFifoBegInv(int units, double unitCost){
-    	mBegInvQty = units;
-    	mBegInvUnitCost = unitCost;
+    	this.mBegInvQty = units;
+    	this.mBegInvUnitCost = unitCost;
     	
-    	mBegInvCost = units * unitCost;
+    	this.mBegInvCost = units * unitCost;
     }
 
 	public double getFifoBegInv() {
-		return mBegInvCost;
+		return this.mBegInvCost;
 	}
     
     public void setFifoPurchase(int units, double unitCost){
-    	mPurchasesQty = units;
-    	mPurchasesUnitCost = unitCost;
+    	this.mPurchasesQty = units;
+    	this.mPurchasesUnitCost = unitCost;
 	
-    	mFifoLayerCost = units * unitCost;
+    	this.mFifoLayerCost = units * unitCost;
     }
 
     
     public double getFifoLayerCost(){
-    	return mFifoLayerCost;	
+    	return this.mFifoLayerCost;
     }
     
     
     public int getFifoCOGSUnits(){
-    	mCOGSUnits += mSoldQty;
-        // mCOGSUnits = mBegInvQty + mPurchasesQty - mEndInv;
-        return mCOGSUnits;	
+		System.out.println(this.mCOGSUnits);
+
+		System.out.println(this.mSoldQty);
+
+		this.mCOGSUnits += this.mSoldQty;
+
+		System.out.println(this.mCOGSUnits);
+
+		//mCOGSUnits = mBegInvQty + mPurchasesQty - mEndInvQty;
+
+        return this.mCOGSUnits;
     }
     
     public void setFifoEndInv(){
-         mEndInvQty = mBegInvQty + mPurchasesQty - mCOGSUnits;
+         this.mEndInvQty = this.mBegInvQty + this.mPurchasesQty - this.mCOGSUnits;
     }
 
     
     public int getFifoEndInv(){
-        return mEndInvQty;
+        return this.mEndInvQty;
     }
     
 }
