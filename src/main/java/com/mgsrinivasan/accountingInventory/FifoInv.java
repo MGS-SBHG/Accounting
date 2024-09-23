@@ -43,70 +43,60 @@ package com.mgsrinivasan.accountingInventory;
 
 public class FifoInv{
 
-	public int 		mBegInvQty;
-	public double 	mBegInvUnitCost;
-	public double 	mBegInvCost;
-	
-	public int 		mPurchasesQty;
-	public double 	mPurchasesUnitCost;
-	public double 	mFifoLayerCost;
-	
-	public int 		mSoldQty;
-	public double 	mSoldUnitCost;
-	public double 	mSoldCost;
-	
-	public int 		mCOGSUnits;	
-	public double 	mCOGS;
-	
-	public int 		mEndInvQty;
-	public double 	mEndInvCost;
-	
-	
-    public void setFifoBegInv(int units, double unitCost){
-    	this.mBegInvQty = units;
-    	this.mBegInvUnitCost = unitCost;
-    	
-    	this.mBegInvCost = units * unitCost;
-    }
+	public int 		unitQty;
+	public double 	unitCost;
+	public double 	invCost;
 
-	public double getFifoBegInv() {
-		return this.mBegInvCost;
+	public int costOfGoodsSoldUnits;
+	public double costOfGoodsSold;
+
+	public int EndingInvUnits;
+	public double EndingInv;
+
+	public FifoInv(int unitQty, double unitCost, double invCost){
+		this.unitQty = unitQty;
+		this.unitCost = unitCost;
+		this.invCost = invCost;
+	};
+
+    public void setInvLayer(int units, double unitCost){
+    	this.unitQty = units;
+    	this.unitCost = unitCost;
+
+		this.invCost = units * unitCost;
+
+		if (units < 0) {
+			this.costOfGoodsSoldUnits += unitQty;
+			this.costOfGoodsSold += this.invCost;
+		}
+		else {
+			this.EndingInvUnits += unitQty;
+			this.EndingInv += this.invCost;
+		}
+	} // setInvLayer
+
+	public double getInvLayer() {
+		return this.invCost;
 	}
-    
-    public void setFifoPurchase(int units, double unitCost){
-    	this.mPurchasesQty = units;
-    	this.mPurchasesUnitCost = unitCost;
-	
-    	this.mFifoLayerCost = units * unitCost;
-    }
 
-    
-    public double getFifoLayerCost(){
-    	return this.mFifoLayerCost;
-    }
-    
-    
     public int getFifoCOGSUnits(){
-		System.out.println(this.mCOGSUnits);
-
-		System.out.println(this.mSoldQty);
-
-		this.mCOGSUnits += this.mSoldQty;
-
-		System.out.println(this.mCOGSUnits);
-
-		//mCOGSUnits = mBegInvQty + mPurchasesQty - mEndInvQty;
-
-        return this.mCOGSUnits;
-    }
-    
-    public void setFifoEndInv(){
-         this.mEndInvQty = this.mBegInvQty + this.mPurchasesQty - this.mCOGSUnits;
+//		System.out.println(this.costOfGoodsSoldUnits);
+		return this.costOfGoodsSoldUnits;
     }
 
-    
-    public int getFifoEndInv(){
-        return this.mEndInvQty;
+	public double getFifoCOGSold(){
+//		System.out.println(this.costOfGoodsSold);
+		return this.costOfGoodsSold;
+	}
+
+	public int getFifoEndInvUnits(){
+//		System.out.println(this.EndingInvUnits);
+		return this.EndingInvUnits;
+	}
+
+    public double getFifoEndInv(){
+//		System.out.println(this.EndingInv);
+		return this.EndingInv;
     }
     
 }

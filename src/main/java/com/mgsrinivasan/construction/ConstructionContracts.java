@@ -183,11 +183,13 @@ public class ConstructionContracts {
 
 	public double getCollectionsOnBillingsEachYr() 
 	{
+
 		return collectionsOnBillingsEachYr;
 	}
 
 	public void setCollectionsOnBillingsEachYr(double collections) 
 	{
+//		System.out.println("collections " + collections);
 		collectionsOnBillingsEachYr = collections;
 	}
 

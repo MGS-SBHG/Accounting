@@ -7,13 +7,13 @@ public class AccountsReceivable {
     // amounts owed to reporting entity by customers
     // current asset
 
-    float begBalanceAR = 0;     // debit
-    float creditSales = 0;      // debit
-    float collectionsMade = 0;  // credit
-    float returns = 0;          // credit
-    float discounts = 0;        // credit
+    float begBalanceAR = 0;             // debit
+    float creditSales = 0;              // debit
+    float collectionsMade = 0;          // credit
+    float returns = 0;                  // credit
+    float discounts = 0;                // credit
     float writeOffUncollectible = 0;    // credit
-    float endBalanceAR = 0;     // debit
+    float endBalanceAR = 0;             // debit
 
     public AccountsReceivable(float begBalanceAR, float creditSales, float collectionsMade, float returns, float discounts,float writeOffUncollectible, float endBalanceAR) {
         this.begBalanceAR = begBalanceAR;
