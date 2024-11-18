@@ -475,9 +475,22 @@ Unamortized issue costs         xx
 Bond discount                   xx
 Cash                            xx
 
-
-
  */
 
+ /*
+investment in securities
+transfer from:           transfer to:
+--------------          -------------
+held-to-maturity        available-for-sale      report unrealized gain or loss as separate part of S.H.E.
+held-to-maturity        trading                 recognize unrealized gain or loss Immediately
+
+available-for-sale      held-to-maturity        report unrealized gain or loss as separate part of S.H.E.
+                                                amortize over remaining life of security
+available-for-sale      trading                 recognize unrealized gain or loss Immediately
+
+trading                 held-to-maturity        Do NOT reverse Unrealized Gain / Loss Previously recognized in income
+trading                 available-for-sale      Do NOT reverse Unrealized Gain / Loss Previously recognized in income
+
+ */
 
 }
