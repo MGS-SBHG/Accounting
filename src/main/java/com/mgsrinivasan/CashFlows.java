@@ -254,9 +254,19 @@ Operating Activities (Direct Method):
         COGS (OUT)                  (1,576)
         Incr. in Inventory (OUT)       (22)
         Incr. in A/P (IN)              (10)     ($1,588)
+   Cash Paid for interest
+        Interest Expense (OUT)      ($24)
+        Decrease in Int Payable     ( $4)       ($28)
+   Cash Paid For Income Taxes
+        Income Tax Expense (OUT)    ($44)
+        Change in
+         Income Tax Payable/DIT items NONE      (44)
+                                               ------
+   Cash Provided from Operating Activities      $154
 
 
+NOTE: "Cash Provided from Operating Activities" $154
+        IS SAME whether InDirect OR Direct Method USED
  */
-
 
 }
